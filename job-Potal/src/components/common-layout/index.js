@@ -3,6 +3,7 @@ import Header from "../header";
 import { fetchProfileAction } from "@/actions";
 import * as React from "react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
+import Footer from "../Footer";
 
 async function CommonLayout({ children, ...props }) {
   const user = await currentUser();
@@ -22,8 +23,10 @@ async function CommonLayout({ children, ...props }) {
         <main>{children}</main>
 
         {/* Main Content */}
+        <Footer/>
       </div>
     </NextThemesProvider>
+    
   );
 }
 

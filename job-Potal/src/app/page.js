@@ -1,6 +1,5 @@
 import { fetchProfileAction } from "@/actions";
 import HomepageButtonControls from "@/components/homepage-button-controls";
-import { Button } from "@/components/ui/button";
 import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import { Fragment } from "react";
@@ -12,40 +11,96 @@ async function Home() {
   if (user && !profileInfo?._id) redirect("/onboard");
 
   return (
-    <Fragment>
-      <section className="relative w-full h-full min-h-screen pb-10">
-        <div className="w-full h-full relative">
-          <div className="flex flex-col-reverse lg:flex-row gap-10 mt-16">
-            <section className="w-full lg:w-[50%] flex flex-col md:px-2 lg:px-0 p-5 lg:p-10">
-              <div className="w-full flex justify-start flex-col h-auto lg:pt-7">
-                <span className="flex space-x-2">
-                  <span className="block w-14 mb-2 dark:border-white border-b-2 border-gray-700"></span>
-                  <span className="font-medium dark:text-white text-gray-600">
-                    One Stop Solution to Find Jobs
+    <div>
+      <Fragment>
+        {/* Hero Section */}
+        <section className="relative w-full h-full min-h-screen pb-10">
+          <div className="w-full h-full relative">
+            <div className="flex flex-col-reverse lg:flex-row gap-10 mt-16">
+              <section className="w-full lg:w-[50%] flex flex-col md:px-2 lg:px-0 p-5 lg:p-10">
+                <div className="w-full flex justify-start flex-col h-auto lg:pt-7">
+                  <span className="flex space-x-2">
+                    <span className="block w-14 mb-2 dark:border-green-500 border-b-2 border-gray-700"></span>
+                    <span className="font-medium dark:text-white text-gray-600">
+                      One Stop Solution to Find Jobs
+                    </span>
                   </span>
-                </span>
-                <h1 className="text-3xl dark:text-white mt-5 lg:text-7xl text-black font-extrabold">
-                  Build your best job community starting from here.
-                </h1>
-                <div className="w-full mt-6 flex items-center text-white justify-start gap-2">
-                  <HomepageButtonControls
-                    user={JSON.parse(JSON.stringify(user))}
-                    profileInfo={profileInfo}
-                  />
+                  <h1 className="text-3xl dark:text-green-500 mt-5 lg:text-7xl text-black font-extrabold">
+                    Build your best job community starting from here.
+                  </h1>
+                  <div className="w-full mt-6 flex items-center text-white justify-start gap-2">
+                    <HomepageButtonControls
+                      user={JSON.parse(JSON.stringify(user))}
+                      profileInfo={profileInfo}
+                    />
+                  </div>
                 </div>
-              </div>
-            </section>
-            <section className="relative w-full lg:w-[50%] flex items-center justify-end">
+              </section>
+              <section className="relative w-full lg:w-[50%] flex items-center justify-end">
+                <img
+                  src="https://utfs.io/f/4c9f7186-8ad0-4680-aece-a5abea608705-k6t10e.png"
+                  alt="Hero"
+                  className="h-full w-full object-contain z-10"
+                />
+              </section>
+            </div>
+          </div>
+        </section>
+      </Fragment>
+
+      {/* Our Team Section */}
+      <section className=" py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-extrabold text-gray-900 dark:text-green-500">Latest Job Openings</h2>
+            <p className="mt-4 text-lg dark:text-white">
+            Explore the newest job opportunities tailored to your skills and interests. Whether you're looking to start your career or take the next step, we've got a variety of roles available across different industries.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            {/* Job 1 */}
+            <div className="text-center">
               <img
-                src="https://utfs.io/f/4c9f7186-8ad0-4680-aece-a5abea608705-k6t10e.png"
-                alt="Hero"
-                className="h-full w-full object-contain z-10"
+                className="w-40 h-40 mx-auto rounded-full object-cover"
+                src="https://via.placeholder.com/150"
+                alt="Lindsay Walton"
               />
-            </section>
+              <h3 className="mt-4 text-xl font-semibold text-gray-900 dark:text-green-500">
+              Software Development
+              </h3>
+              <p className="mt-2 text-sm text-gray-500">Full Stack, Front-End, Back-End, and DevOps roles.</p>
+            </div>
+
+            {/* Job 2 */}
+            <div className="text-center">
+              <img
+                className="w-40 h-40 mx-auto rounded-full object-cover"
+                src="https://via.placeholder.com/150"
+                alt="Courtney Henry"
+              />
+              <h3 className="mt-4 text-xl font-semibold text-gray-900 dark:text-green-500">
+              Design and Creative
+              </h3>
+              <p className="mt-2 text-sm text-gray-500">UX/UI Designers, Graphic Designers, and Creative Directors.</p>
+            </div>
+
+            {/* Job  3 */}
+            <div className="text-center">
+              <img
+                className="w-40 h-40 mx-auto rounded-full object-cover"
+                src="https://via.placeholder.com/150"
+                alt="Tom Cook"
+              />
+              <h3 className="mt-4 text-xl font-semibold text-gray-900 dark:text-green-500">
+              Marketing and Sales
+              </h3>
+              <p className="mt-2 text-sm text-gray-500">Digital Marketers, Sales Executives, and Content Specialists.</p>
+            </div>
           </div>
         </div>
       </section>
-    </Fragment>
+    </div>
   );
 }
 
