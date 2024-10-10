@@ -101,14 +101,14 @@ function Feed({ user, profileInfo, allFeedPosts }) {
   return (
     <Fragment>
       <div className="mx-auto max-w-7xl">
-        <div className="flex items-baseline justify-between dark:border-white border-b pb-6 pt-24">
-          <h1 className="dark:text-white text-4xl font-bold tracking-tight text-gray-900">
+        <div className="flex items-baseline justify-between dark:border-orange-500 border-b pb-6 pt-24">
+          <h1 className="dark:text-orange-600 text-4xl font-bold tracking-tight text-gray-900">
             Explore Feed
           </h1>
           <div className="flex items-center">
             <Button
               onClick={() => setShowPostDialog(true)}
-              className="flex h-11 items-center justify-center px-5"
+              className="flex h-11 items-center justify-center px-5 dark:bg-orange-500"
             >
               Add New Post
             </Button>
@@ -120,7 +120,7 @@ function Feed({ user, profileInfo, allFeedPosts }) {
               allFeedPosts.map((feedPostItem) => (
                 <div
                   key={feedPostItem._id}
-                  className="group relative -mx-4 p-6 rounded-3xl bg-gray-100 hover:bg-white hover:shadow-2xl cursor-auto shadow-2xl shadow-transparent gap-8 flex"
+                  className="group relative -mx-4 p-6 rounded-3xl dark:bg-green-400 bg-black  hover:dark:bg-gray-100 hover:shadow-2xl cursor-auto shadow-2xl shadow-transparent gap-8 flex"
                 >
                   <div className="sm:w-2/6 rounded-3xl overflow-hidden transition-all duration-500 group-hover:rounded-xl">
                     <img
@@ -130,10 +130,10 @@ function Feed({ user, profileInfo, allFeedPosts }) {
                     />
                   </div>
                   <div className="sm:p-2 sm:pl-0 sm:w-4/6">
-                    <span className="mt-4 mb-2 inline-block font-medium text-gray-500 sm:mt-0">
+                    <span className="mt-4 mb-2 inline-block font-medium dark:text-gray-500 text-orange-500 sm:mt-0">
                       {feedPostItem?.userName}
                     </span>
-                    <h3 className="mb-6 text-4xl font-bold text-gray-900">
+                    <h3 className="mb-6 text-4xl font-bold text-green-500 dark:text-black">
                       {feedPostItem?.message}
                     </h3>
                     <div className="flex gap-5">
@@ -155,7 +155,7 @@ function Feed({ user, profileInfo, allFeedPosts }) {
                 </div>
               ))
             ) : (
-              <h1>No posts found!</h1>
+              <h1 className="dark:text-green-500 ">No posts found!</h1>
             )}
           </div>
         </div>

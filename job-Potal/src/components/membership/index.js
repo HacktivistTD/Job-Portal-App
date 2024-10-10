@@ -82,8 +82,8 @@ function Membership({ profileInfo }) {
 
   return (
     <div className="mx-auto max-w-7xl">
-      <div className="flex items-baseline dark:border-white justify-between border-b pb-6 pt-24">
-        <h1 className="text-4xl font-bold dark:text-white tracking-tight text-gray-950">
+      <div className="flex items-baseline dark:border-green-500 justify-between border-b pb-6 pt-24">
+        <h1 className="text-4xl font-bold dark:text-orange-500 tracking-tight text-gray-950">
           {profileInfo?.isPremiumUser
             ? "You are a premium user"
             : "Choose Your Best Plan"}
@@ -102,15 +102,15 @@ function Membership({ profileInfo }) {
       </div>
       <div className="py-20 pb-24 pt-6">
         <div className="container mx-auto p-0 space-y-8">
-          <div className="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-3 dark:bg-black">
             {membershipPlans.map((plan, index) => (
               <CommonCard
                 icon={
                   <div className="flex justify-between">
                     <div>
-                      <JobIcon />
+                    <JobIcon />
                     </div>
-                    <h1 className="font-bold text-2xl">{plan.heading}</h1>
+                    <h1 className="font-bold text-2xl dark:text-black">{plan.heading}</h1>
                   </div>
                 }
                 title={`$ ${plan.price} /yr`}
@@ -123,12 +123,12 @@ function Membership({ profileInfo }) {
                   index < 2 ? null : (
                     <Button
                       onClick={() => handlePayment(plan)}
-                      className="disabled:opacity-65 dark:bg-[#fffa27] flex h-11 items-center justify-center px-5"
+                      className="disabled:opacity-65 dark:bg-black dark:text-white flex h-11 items-center justify-center px-5"
                     >
                       {profileInfo?.memberShipType === "basic" ||
                       profileInfo?.memberShipType === "teams"
                         ? "Update Plan"
-                        : "Get Premium"}
+                        : "Get Started Today"}
                     </Button>
                   ))
                 }

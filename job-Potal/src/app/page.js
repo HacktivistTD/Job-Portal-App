@@ -4,6 +4,14 @@ import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import { Fragment } from "react";
 
+
+const stats = [
+  { id: 1, name: 'Transactions every 24 hours', value: '44 million' },
+  { id: 2, name: 'Assets under holding', value: '$119 trillion' },
+  { id: 3, name: 'New users annually', value: '46,000' },
+]
+
+
 async function Home() {
   const user = await currentUser();
   const profileInfo = await fetchProfileAction(user?.id);
@@ -52,7 +60,7 @@ async function Home() {
       <section className=" py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-extrabold text-gray-900 dark:text-green-500">Latest Job Openings</h2>
+            <h2 className="text-3xl font-extrabold text-gray-900 dark:text-orange-500">Latest Job Openings</h2>
             <p className="mt-4 text-lg dark:text-white">
             Explore the newest job opportunities tailored to your skills and interests. Whether you're looking to start your career or take the next step, we've got a variety of roles available across different industries.
             </p>
@@ -63,8 +71,8 @@ async function Home() {
             <div className="text-center">
               <img
                 className="w-40 h-40 mx-auto rounded-full object-cover"
-                src="https://via.placeholder.com/150"
-                alt="Lindsay Walton"
+                src="/images/dev.jpg"
+                alt="dev"
               />
               <h3 className="mt-4 text-xl font-semibold text-gray-900 dark:text-green-500">
               Software Development
@@ -76,8 +84,8 @@ async function Home() {
             <div className="text-center">
               <img
                 className="w-40 h-40 mx-auto rounded-full object-cover"
-                src="https://via.placeholder.com/150"
-                alt="Courtney Henry"
+                src="/images/ui.jpg"
+                alt="ui"
               />
               <h3 className="mt-4 text-xl font-semibold text-gray-900 dark:text-green-500">
               Design and Creative
@@ -89,8 +97,8 @@ async function Home() {
             <div className="text-center">
               <img
                 className="w-40 h-40 mx-auto rounded-full object-cover"
-                src="https://via.placeholder.com/150"
-                alt="Tom Cook"
+                src="/images/marketing.jpg"
+                alt="marketing"
               />
               <h3 className="mt-4 text-xl font-semibold text-gray-900 dark:text-green-500">
               Marketing and Sales
@@ -100,6 +108,20 @@ async function Home() {
           </div>
         </div>
       </section>
+      <div className=" py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
+          {stats.map((stat) => (
+            <div key={stat.id} className="mx-auto flex max-w-xs flex-col gap-y-4 ">
+              <dt className="text-base leading-7 text-gray-500">{stat.name}</dt>
+              <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl dark:text-orange-500">
+                {stat.value}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
     </div>
   );
 }

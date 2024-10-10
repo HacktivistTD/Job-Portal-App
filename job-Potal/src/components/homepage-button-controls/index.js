@@ -12,10 +12,10 @@ function HomepageButtonControls({ user, profileInfo }) {
   }, []);
 
   return (
-    <div className="flex space-x-4">
-      <Button
+    <div className="flex space-x-4 ">
+      <Button 
         onClick={() => router.push("/jobs")}
-        className="flex h-11 items-center justify-center px-5"
+        className="flex h-11 items-center justify-center px-5 dark:text-green-500"
       >
         {user
           ? profileInfo?.role === "candidate"
@@ -33,7 +33,7 @@ function HomepageButtonControls({ user, profileInfo }) {
               : "/jobs"
           )
         }
-        className="flex h-11 items-center justify-center px-5"
+        className="flex h-11 items-center justify-center px-5 dark:text-green-500"
       >
         {user
           ? profileInfo?.role === "candidate"
