@@ -74,10 +74,10 @@ async function Home() {
                 src="/images/dev.jpg"
                 alt="dev"
               />
-              <h3 className="mt-4 text-xl font-semibold text-gray-900 dark:text-green-500">
+              <h3 className="mt-4 text-xl font-semibold text-gray-900 dark:text-yellow-500">
               Software Development
               </h3>
-              <p className="mt-2 text-sm text-gray-500">Full Stack, Front-End, Back-End, and DevOps roles.</p>
+              <p className="mt-2 text-sm text-white">Full Stack, Front-End, Back-End, and DevOps roles.</p>
             </div>
 
             {/* Job 2 */}
@@ -90,7 +90,7 @@ async function Home() {
               <h3 className="mt-4 text-xl font-semibold text-gray-900 dark:text-green-500">
               Design and Creative
               </h3>
-              <p className="mt-2 text-sm text-gray-500">UX/UI Designers, Graphic Designers, and Creative Directors.</p>
+              <p className="mt-2 text-sm text-white">UX/UI Designers, Graphic Designers, and Creative Directors.</p>
             </div>
 
             {/* Job  3 */}
@@ -100,10 +100,10 @@ async function Home() {
                 src="/images/marketing.jpg"
                 alt="marketing"
               />
-              <h3 className="mt-4 text-xl font-semibold text-gray-900 dark:text-green-500">
+              <h3 className="mt-4 text-xl font-semibold text-gray-900 dark:text-purple-500">
               Marketing and Sales
               </h3>
-              <p className="mt-2 text-sm text-gray-500">Digital Marketers, Sales Executives, and Content Specialists.</p>
+              <p className="mt-2 text-sm text-white">Digital Marketers, Sales Executives, and Content Specialists.</p>
             </div>
           </div>
         </div>
@@ -113,7 +113,7 @@ async function Home() {
         <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
           {stats.map((stat) => (
             <div key={stat.id} className="mx-auto flex max-w-xs flex-col gap-y-4 ">
-              <dt className="text-base leading-7 text-gray-500">{stat.name}</dt>
+              <dt className="text-base leading-7 text-yellow-500">{stat.name}</dt>
               <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl dark:text-orange-500">
                 {stat.value}
               </dd>

@@ -108,14 +108,14 @@ function Feed({ user, profileInfo, allFeedPosts }) {
           <div className="flex items-center">
             <Button
               onClick={() => setShowPostDialog(true)}
-              className="flex h-11 items-center justify-center px-5 dark:bg-orange-500"
+              className="flex h-11 items-center justify-center px-5 dark:bg-white  dark:text-orange-500"
             >
               Add New Post
             </Button>
           </div>
         </div>
         <div className="py-12">
-          <div className="container m-auto p-0 flex flex-col gap-5 text-gray-700">
+        <div className="container m-auto p-0 grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-5 text-gray-700">
             {allFeedPosts && allFeedPosts.length > 0 ? (
               allFeedPosts.map((feedPostItem) => (
                 <div

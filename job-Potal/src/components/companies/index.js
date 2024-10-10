@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { useMemo } from "react";
 import CommonCard from "../common-card";
 import JobIcon from "../job-icon";
 import { Button } from "../ui/button";
@@ -8,16 +9,19 @@ import { Button } from "../ui/button";
 function Companies({ jobsList }) {
   const router = useRouter();
 
-  const createUniqueSetOfCompanies = [
-    ...new Set(
-      jobsList
-        .filter(
-          (jobItem) =>
-            jobItem?.companyName && jobItem?.companyName.trim() !== ""
-        )
-        .map((item) => item.companyName)
-    ),
-  ];
+  // Memoize the unique set of company names to avoid recomputation on every render
+  const createUniqueSetOfCompanies = useMemo(() => {
+    return [
+      ...new Set(
+        jobsList
+          .filter(
+            (jobItem) =>
+              jobItem?.companyName && jobItem?.companyName.trim() !== ""
+          )
+          .map((item) => item.companyName)
+      ),
+    ];
+  }, [jobsList]);
 
   function handleFilterJobsByCompanyName(getCompanyName) {
     sessionStorage.setItem(
@@ -29,8 +33,6 @@ function Companies({ jobsList }) {
 
     router.push("/jobs");
   }
-
-  console.log(createUniqueSetOfCompanies);
 
   return (
     <div className="mx-auto max-w-7xl">
@@ -44,10 +46,10 @@ function Companies({ jobsList }) {
           <div className="lg:col-span-4">
             <div className="container mx-auto p-0 space-y-8">
               <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-3">
-                {createUniqueSetOfCompanies &&
-                createUniqueSetOfCompanies.length > 0 ? (
-                  createUniqueSetOfCompanies.map((companyName) => (
+                {createUniqueSetOfCompanies && createUniqueSetOfCompanies.length > 0 ? (
+                  createUniqueSetOfCompanies.map((companyName, index) => (
                     <CommonCard
+                      key={index} // Unique key
                       icon={<JobIcon />}
                       title={companyName}
                       footerContent={
